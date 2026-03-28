@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Health Dashboard</title>
+
+//////
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+////////
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<style>
+
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #f4f9ff;
+}
+
+/*  TOP BAR */
+
+.top-bar {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: #0077ff;
+}
+
+.top-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+.top-bar button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+/*  DASHBOARD LAYOUT */
+
+.dashboard {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+/*  HISTORY */
+
+.history-box {
+  width: 25%;
+  background: lab(100% 0.01 -0.01);
+  padding: 15px;
+  border-radius: 12px;
+  height: 400px;
+  overflow-y: auto;
+}
+
+/*  RIGHT GRID */
+
+.cards {
+  width: 75%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* 📦 CARD */
+
+.card {
+  background: rgb(162, 232, 231);
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+/*  MAP */
+
+#map {
+  height: 300px;
+  margin: 20px;
+  border-radius: 12px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!--  TOP BAR -->
+
+<div class="top-bar">
+  <input type="file" id="reportUpload">
+  <input type="text" id="text" placeholder="Describe symptoms...">
+  <button onclick="analyze()">Analyze</button>
+  <button onclick="downloadPDF()">📄 Download Report</button>
+  <button onclick="showMap()">🗺️ Show COVID Map</button>
+</div>
+
+<!--  DASHBOARD -->
+
+<div class="dashboard">
+
+  <!-- 📜 HISTORY -->
+  <div class="history-box">
+    <h2>📜 History</h2>
+    <ul id="history"></ul>
+  </div>
+
+  <!-- 📊 CARDS -->
+  <div class="cards">
+
+    <div class="card">
+      <h3>⚠️ Health Risk</h3>
+      <p id="risk">--</p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Mental Condition</h3>
+      <p id="mental">--</p>
+    </div>
+
+    <div class="card">
+      <h3>💡 Suggestions</h3>
+      <ul id="suggestionsList"></ul>
+    </div>
+
+    <div class="card">
+      <h3>🧪 Disease</h3>
+      <p id="disease">--</p>
+    </div>
+
+    <div class="card">
+      <h3>❤️ Score</h3>
+      <p id="score">--</p>
+    </div>
+
+    <div class="card">
+      <h3>📊 Status</h3>
+      <p id="status">--</p>
+    </div>
+
+    <div class="card">
+      <h3>⏳ Recovery</h3>
+      <p id="recovery">--</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- MAP -->
+
+<div id="map"></div>
+
+
+
+<div style="background:white; margin:20px; padding:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+  
+  <h2>💡 Health Recommendations</h2>
+
+  <ol>
+    <li>Stay hydrated with warm fluids and soups</li>
+    <li>Rest and avoid strenuous activities</li>
+    <li>Take fever-reducing medication if temperature exceeds 38.5°C</li>
+    <li>Use steam inhalation to relieve congestion</li>
+    <li>Consult a doctor if symptoms worsen after 3 days</li>
+  </ol>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
