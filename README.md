@@ -103,14 +103,18 @@ cd AI-Health-Map
 
 📸 Screenshots
 
-
-(Add screenshots of your project here)
+LOGIN PAGE
 
 <img width="1894" height="941" alt="Screenshot 2026-03-30 115131" src="https://github.com/user-attachments/assets/8cefa8ff-a7b7-43f0-ad13-e4ff0395d3bf" />
 
+LANGUAGE PAGE
+
 <img width="1889" height="819" alt="Screenshot 2026-03-30 115520" src="https://github.com/user-attachments/assets/d23506ea-a48d-41ff-9367-346ce7c29d78" />
 
+PREDICTION PAGE
+
 <img width="1877" height="869" alt="Screenshot 2026-03-30 115601" src="https://github.com/user-attachments/assets/c16b8bae-481e-40c2-aa22-c7342c8966b7" />
+
 
 
 Future Scope
