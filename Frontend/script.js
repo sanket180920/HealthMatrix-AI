@@ -1,29 +1,3 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyDN9gV01B2VPAE_dnuRfrWq_hKgZjpn4hA",
-  authDomain: "healthmatrix-ai.firebaseapp.com",
-  projectId: "healthmatrix-ai",
-  storageBucket: "healthmatrix-ai.firebasestorage.app",
-  messagingSenderId: "208817047284",
-  appId: "1:208817047284:web:147ab02b82439a313100a1",
-  measurementId: "G-QFESBL507T"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
-
-
-
-
 
 //  FIRST FUNCTION (TOP)
 

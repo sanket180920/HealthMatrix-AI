@@ -29,6 +29,14 @@ body {
     animation: fadeIn 1s ease;
 }
 
+/*  Doctor Animation Image */
+
+.doctor {
+    width: 120px;
+    margin-bottom: 10px;
+    animation: float 3s infinite ease-in-out;
+}
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -85,9 +93,11 @@ button {
 
 <div class="card">
 
-    <div class="icons">🏥 ❤️ 🧬 💊</div>
+    <!--  Human Animation -->
+    <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" class="doctor">
 
-     
+    <div class="icons"></div>
+
     <h2>Welcome to AI Healthcare Portal</h2>
 
     <input type="email" id="email" placeholder="Enter Email">
@@ -132,4 +142,3 @@ function forgotPassword() {
 
 </body>
 </html>
-
