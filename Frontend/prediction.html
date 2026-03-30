@@ -3,6 +3,12 @@
 <head>
 <title>AI Health Dashboard</title>
 
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
@@ -101,6 +107,7 @@ body {
   <input type="text" id="text" placeholder="Describe symptoms...">
   <button onclick="analyze()">Analyze</button>
   <button onclick="downloadPDF()">📄 Download Report</button>
+  <button onclick="showMap()">🗺️ Show COVID Map</button>
 </div>
 
 <!--  DASHBOARD -->
@@ -158,6 +165,22 @@ body {
 <!-- MAP -->
 
 <div id="map"></div>
+
+
+
+<div style="background:white; margin:20px; padding:20px; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+  
+  <h2>💡 Health Recommendations</h2>
+
+  <ol>
+    <li>Stay hydrated with warm fluids and soups</li>
+    <li>Rest and avoid strenuous activities</li>
+    <li>Take fever-reducing medication if temperature exceeds 38.5°C</li>
+    <li>Use steam inhalation to relieve congestion</li>
+    <li>Consult a doctor if symptoms worsen after 3 days</li>
+  </ol>
+
+</div>
 
 <script src="script.js"></script>
 

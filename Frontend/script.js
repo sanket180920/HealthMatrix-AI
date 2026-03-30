@@ -1,3 +1,30 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDN9gV01B2VPAE_dnuRfrWq_hKgZjpn4hA",
+  authDomain: "healthmatrix-ai.firebaseapp.com",
+  projectId: "healthmatrix-ai",
+  storageBucket: "healthmatrix-ai.firebasestorage.app",
+  messagingSenderId: "208817047284",
+  appId: "1:208817047284:web:147ab02b82439a313100a1",
+  measurementId: "G-QFESBL507T"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+
+
+
+
+
 //  FIRST FUNCTION (TOP)
 
 function getRiskScore(text){
@@ -72,7 +99,8 @@ function loadMap(){
     {name:"Nagpur", lat:21.1458, lon:79.0882, cases: 4000}
   ];
 
-  // 🔥 Add circles instead of simple markers
+  //  Add circles instead of simple markers
+
   cities.forEach(city => {
 
     let color =
@@ -100,7 +128,8 @@ function loadMap(){
     });
   });
 
-  // ⚡ Fix rendering issue
+  // Fix rendering issue
+  
   setTimeout(() => {
     map.invalidateSize();
   }, 200);
@@ -129,23 +158,23 @@ function analyze(){
   let history = document.getElementById("history");
   let lang = localStorage.getItem("lang");
 
-  let risk = "Low 🟢";
-  let mental = "Normal 🙂";
+  let risk = "Low ";
+  let mental = "Normal ";
 
   if(text.includes("fever") || text.includes("cough")){
-    risk = "Medium 🟡";
+    risk = "Medium ";
   }
 
   if(text.includes("pain") || text.includes("chest")){
-    risk = "High 🔴";
+    risk = "High ";
   }
 
   if(text.includes("stress")){
-    mental = "High Stress ⚠️";
+    mental = "High Stress ";
   }
 
   if(text.includes("happy")){
-    mental = "Good 😊";
+    mental = "Good ";
   }
 
   //  Language Conversion
@@ -172,51 +201,51 @@ function analyze(){
   // Fever / Cold
 
   if(text.includes("fever") || text.includes("cough")){
-    suggestions.push("Take proper rest 😴");
-    suggestions.push("Drink warm fluids ☕");
-    suggestions.push("Take steam inhalation 🌫️");
-    suggestions.push("Avoid cold food ❄️");
+    suggestions.push("Take proper rest ");
+    suggestions.push("Drink warm fluids ");
+    suggestions.push("Take steam inhalation ");
+    suggestions.push("Avoid cold food ");
   }
 
   // Chest / Pain
 
   if(text.includes("pain") || text.includes("chest")){
-    suggestions.push("Consult a doctor immediately 🏥");
-    suggestions.push("Avoid heavy physical activity 🚫");
-    suggestions.push("Monitor heart rate ❤️");
+    suggestions.push("Consult a doctor immediately ");
+    suggestions.push("Avoid heavy physical activity ");
+    suggestions.push("Monitor heart rate ");
   }
 
   // Fatigue
 
   if(text.includes("fatigue")){
-    suggestions.push("Take enough sleep 🛌");
-    suggestions.push("Eat nutritious food 🥗");
-    suggestions.push("Stay hydrated 💧");
+    suggestions.push("Take enough sleep ");
+    suggestions.push("Eat nutritious food ");
+    suggestions.push("Stay hydrated ");
   }
 
   // Stress
 
   if(text.includes("stress")){
-    suggestions.push("Try meditation 🧘");
-    suggestions.push("Do deep breathing exercises 🌬️");
-    suggestions.push("Take breaks from screen 📵");
-    suggestions.push("Talk to someone you trust ❤️");
+    suggestions.push("Try meditation ");
+    suggestions.push("Do deep breathing exercises ");
+    suggestions.push("Take breaks from screen ");
+    suggestions.push("Talk to someone you trust ");
   }
 
   //  Happy
 
   if(text.includes("happy")){
-    suggestions.push("Maintain your healthy lifestyle 😄");
-    suggestions.push("Stay active and positive 💪");
+    suggestions.push("Maintain your healthy lifestyle ");
+    suggestions.push("Stay active and positive ");
   }
 
   //  Default
 
   if(suggestions.length === 0){
-    suggestions.push("Stay healthy 💪");
-    suggestions.push("Exercise regularly 🏃");
-    suggestions.push("Drink enough water 💧");
-    suggestions.push("Maintain balanced diet 🥗");
+    suggestions.push("Stay healthy ");
+    suggestions.push("Exercise regularly ");
+    suggestions.push("Drink enough water ");
+    suggestions.push("Maintain balanced diet ");
   }
 
   //  Show suggestions
@@ -226,7 +255,7 @@ function analyze(){
 
   suggestions.forEach(item => {
     let li = document.createElement("li");
-    li.innerHTML = "👉 " + item;
+  li.innerText = "- " + item;
     list.appendChild(li);
   });
 
@@ -234,15 +263,15 @@ function analyze(){
 
   let score = getRiskScore(text);
   let disease = "No major issue";
-  let status = "Healthy ✅";
+  let status = "Healthy ";
   let recovery = "No rest needed";
 
   if(text.includes("fever") && text.includes("cough")){
-    disease = "Possible Viral Infection 🤒";
+    disease = "Possible Viral Infection ";
   }
 
   if(text.includes("chest") && text.includes("pain")){
-    disease = "Heart Risk ⚠️";
+    disease = "Heart Risk ";
   }
 
   if(text.includes("fatigue")){
@@ -252,15 +281,15 @@ function analyze(){
   let severity = score + "/100";
 
   if(score > 70){
-    status = "Critical 🔴";
+    status = "Critical ";
     recovery = "Immediate medical attention needed";
   }
   else if(score > 40){
-    status = "Moderate 🟡";
+    status = "Moderate ";
     recovery = "3-5 days rest required";
   }
   else{
-    status = "Stable 🟢";
+    status = "Stable ";
     recovery = "1-2 days rest";
   }
 
