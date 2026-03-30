@@ -17,32 +17,40 @@ body {
     height: 100vh;
 }
 
-/* Card */
-
-.card {
+/* MAIN CONTAINER */
+.container {
+    display: flex;
+    width: 800px;
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    width: 340px;
-    text-align: center;
+    border-radius: 20px;
+    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    animation: fadeIn 1s ease;
 }
 
-/*  Doctor Animation Image */
-
-.doctor {
-    width: 120px;
-    margin-bottom: 10px;
-    animation: float 3s infinite ease-in-out;
+/* LEFT SIDE */
+.left {
+    width: 50%;
+    background: linear-gradient(135deg, #0077ff, #00aaff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+.left img {
+    width: 80%;
+    border-radius: 20px;
 }
 
-/* Inputs */
+/* RIGHT SIDE */
+.right {
+    width: 50%;
+    padding: 30px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
 
 input {
     width: 100%;
@@ -51,8 +59,6 @@ input {
     border-radius: 8px;
     border: 1px solid #ccc;
 }
-
-/* Buttons */
 
 button {
     width: 100%;
@@ -65,25 +71,25 @@ button {
     cursor: pointer;
 }
 
-/* Links */
+/* GOOGLE BUTTON */
+.google-btn {
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+.google-btn img {
+    width: 18px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
 
 .link {
     color: #0077ff;
     font-size: 12px;
     cursor: pointer;
-}
-
-/* Animation icons */
-
-.icons {
-    font-size: 24px;
-    animation: float 3s infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    margin-top: 10px;
 }
 </style>
 
@@ -91,27 +97,36 @@ button {
 
 <body>
 
-<div class="card">
+<div class="container">
 
-    <!--  Human Animation -->
-    <img src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif" class="doctor">
+    <!-- LEFT SIDE IMAGE -->
+    <div class="left">
+        <img src="https://img.freepik.com/free-photo/doctor-with-stethoscope-hands-hospital-background_1423-1.jpg">
+    </div>
 
-    <div class="icons"></div>
+    <!-- RIGHT SIDE LOGIN -->
+    <div class="right">
 
-    <h2>Welcome to AI Healthcare Portal</h2>
+        <h2>Welcome to AI Healthcare Portal</h2>
 
-    <input type="email" id="email" placeholder="Enter Email">
-    <input type="password" id="password" placeholder="Enter Password">
+        <input type="email" id="email" placeholder="Enter Email">
+        <input type="password" id="password" placeholder="Enter Password">
 
-    <button onclick="login()">Login</button>
-    <button onclick="emailLogin()">Login with Email</button>
+        <button onclick="login()">Login</button>
 
-    <p class="link" onclick="forgotPassword()">Forgot Password?</p>
+        <!-- 🔥 GOOGLE LOGIN BUTTON -->
+        <button class="google-btn" onclick="googleLogin()">
+            <img src="https://cdn-icons-png.flaticon.com/512/281/281764.png">
+            Sign in with Google
+        </button>
 
-    <p id="msg"></p>
+        <p class="link" onclick="forgotPassword()">Forgot Password?</p>
+
+        <p id="msg"></p>
+
+    </div>
 
 </div>
-
 
 <script>
 function login() {
@@ -123,16 +138,18 @@ function login() {
         return;
     }
 
-     document.getElementById("msg").innerHTML = "✅ Login Successful!";
+    document.getElementById("msg").innerHTML = "✅ Login Successful!";
 
-    // Redirect to language page
     setTimeout(() => {
         window.location.href = "language.html";
     }, 1000);
 }
 
-function emailLogin() {
-    alert("Redirect to Email Login (Firebase later)");
+// 🔥 GOOGLE LOGIN (DEMO)
+function googleLogin() {
+    alert("Google Login Coming Soon 🚀");
+
+    // later we will connect Firebase here
 }
 
 function forgotPassword() {
